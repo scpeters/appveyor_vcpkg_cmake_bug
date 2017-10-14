@@ -8,10 +8,13 @@ environment:
   CTEST_OUTPUT_ON_FAILURE: 1
 
 build_script:
+  # this will be successful
   - md build
   - cd build
-  # this will be successful
   - cmake ..
   # this will fail
+  - cd ..
+  - md build_
+  - cd build_
   - cmake ..
     -DCMAKE_TOOLCHAIN_FILE=c:/tools/vcpkg/scripts/buildsystems/vcpkg.cmake
