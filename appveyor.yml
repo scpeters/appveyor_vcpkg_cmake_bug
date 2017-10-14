@@ -1,0 +1,17 @@
+os:
+  - Visual Studio 2015
+
+configuration:
+  - Release
+
+environment:
+  CTEST_OUTPUT_ON_FAILURE: 1
+
+build_script:
+  - md build
+  - cd build
+  # this will be successful
+  - cmake ..
+  # this will fail
+  - cmake ..
+    -DCMAKE_TOOLCHAIN_FILE=c:/tools/vcpkg/scripts/buildsystems/vcpkg.cmake
