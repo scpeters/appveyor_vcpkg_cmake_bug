@@ -7,6 +7,17 @@ configuration:
 environment:
   CTEST_OUTPUT_ON_FAILURE: 1
 
+install:
+  - hg summary
+  - hg clone https://bitbucket.org/ignitionrobotics/ign-cmake
+  - cd ign-cmake
+  - hg up default
+  - md build
+  - cd build
+  - cmake ..
+  - cmake --build . --target INSTALL
+  - cd ../..
+
 build_script:
   # this will be successful
   - md build
